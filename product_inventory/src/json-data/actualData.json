@@ -1,0 +1,134 @@
+{
+  "products": [
+    {
+      "image": "https://cdn.shopify.com/s/files/1/0014/1377/5433/products/Glenn_mango_7gal_540x.jpg",
+      "name": "Mango Saplings",
+      "companyName": "7Seed",
+      "offer": false,
+      "price": 100,
+      "regDate": "2020-08-05",
+      "category": "Seed/sapling",
+      "stock": 100,
+      "rating": "4.6",
+      "description": "We provide mango plants, that are cultivated from quality-approved planting materials, insecticides and pesticide.",
+      "id": 1
+    },
+    {
+      "image": "https://3.imimg.com/data3/HY/QB/GLADMIN-122151/coconut-seedlings-500x500.jpg",
+      "name": "Coconut Saplings",
+      "companyName": "7Seeds",
+      "offer": "true",
+      "price": 120,
+      "regDate": "2020-08-04",
+      "category": "Seed/Sapling",
+      "stock": 250,
+      "rating": "4.7",
+      "description": "Plants We Supply Are Original Hybrid Varieties We Do In Our Own Garden.Plant Height 8 - 24 Inches",
+      "id": 2
+    },
+    {
+      "id": 3,
+      "image": "https://www.tafe.com/tractors/imt/thumb/TAFE-IMT-tractor-565.2.png",
+      "name": "Tractor 5400",
+      "price": "74999.00",
+      "companyName": "TAFE",
+      "category": "Machinery",
+      "regDate": "2020-08-04",
+      "stock": 10,
+      "offer": false,
+      "rating": "4.9",
+      "description": "A tractor is an engineering vehicle for the purposes of hauling a trailer or machinery such as that used in agriculture or construction."
+    },
+    {
+      "id": 4,
+      "image": "https://rukminim1.flixcart.com/image/416/416/jzlldow0/plant-sapling/w/j/g/banana-long-plant-1-modern-plant-original-imafjkzht86g9jj9.jpeg?q=70",
+      "name": "Banana Plant",
+      "companyName": "7Seeds",
+      "offer": false,
+      "price": "150",
+      "regDate": "2020-08-05",
+      "category": "Seed/sapling",
+      "stock": "50",
+      "rating": 0,
+      "description": "Height: 150 mm.Life span of 10 months"
+    },
+    {
+      "id": 5,
+      "image": "https://assets.leevalley.com/Size4/10101/CB215-mini-shovel-f-0009.jpg",
+      "name": "Shovel",
+      "companyName": "TAFE",
+      "offer": false,
+      "price": "350",
+      "regDate": "2020-08-10",
+      "category": "Tools",
+      "stock": "50",
+      "rating": 0,
+      "description": "Excellent & durable, with a smooth & comfortable handle made from Wood and a thick heavy duty polished head.Do not expose to water for more hours."
+    }
+  ],
+  "users": [
+    {
+      "firstname": "Admin",
+      "lastname": "M",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "confirmpassword": "admin123",
+      "securityquestion": "who is your best friend?",
+      "answer": "admin",
+      "gender": "male",
+      "id": 1
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "name": "Mango Saplings",
+      "category": "Seed/sapling",
+      "monday": 2,
+      "tuesday": 6,
+      "wednesday": 7,
+      "thursday": 3,
+      "friday": 0
+    },
+    {
+      "id": 2,
+      "name": "Coconut Saplings",
+      "category": "Seed/sapling",
+      "monday": 8,
+      "tuesday": 10,
+      "wednesday": 6,
+      "thursday": 15,
+      "friday": 10
+    },
+    {
+      "id": 3,
+      "name": "Tractor 5400",
+      "category": "Machinery",
+      "monday": 20,
+      "tuesday": 12,
+      "wednesday": 24,
+      "thursday": 13,
+      "friday": 17
+    },
+    {
+      "id": 4,
+      "name": "Banana Plant",
+      "category": "Seed/sapling",
+      "monday": 5,
+      "tuesday": 7,
+      "wednesday": 6,
+      "thursday": 8,
+      "friday": 9
+    },
+    {
+      "id": 5,
+      "name": "Shovel",
+      "category": "Tools",
+      "monday": 8,
+      "tuesday": 10,
+      "wednesday": 6,
+      "thursday": 15,
+      "friday": 10
+    }
+  ]
+}

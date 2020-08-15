@@ -1,0 +1,187 @@
+{
+  "products": [
+    {
+      "image": "https://www.tafe.com/tractors/imt/thumb/TAFE-IMT-tractor-565.2.png",
+      "name": "Tractor 5400",
+      "companyName": "TAFE",
+      "offer": false,
+      "price": "74998",
+      "regDate": "2020-08-13",
+      "category": "Machinery",
+      "stock": 0,
+      "rating": "4.9",
+      "description": "A tractor is an engineering vehicle for the purposes of hauling a trailer or machinery such as that used in agriculture or construction.",
+      "id": 3
+    },
+    {
+      "image": "https://5.imimg.com/data5/LN/JO/XC/SELLER-6189178/pesticide-electric-sprayer-500x500.jpg",
+      "name": "Pesticide sprayer",
+      "companyName": "007Sprayer",
+      "offer": false,
+      "price": "1000",
+      "regDate": "2020-08-05",
+      "category": "Tools",
+      "stock": 37,
+      "rating": 0,
+      "description": "Model : Gold 16L 12V/12AH , Weight : 6 KG Capacity : 16 Liters",
+      "id": 6
+    },
+    {
+      "image": "https://5.imimg.com/data5/KS/SY/MY-45815663/jcb-3dx-loader-500x500.jpg",
+      "name": "JCB",
+      "companyName": "TAFE",
+      "offer": false,
+      "price": "999999",
+      "regDate": "2020-08-04",
+      "category": "Machinery",
+      "stock": 17,
+      "rating": 0,
+      "description": "TorqueLock to reduce fuel consumption and increase top speeds.",
+      "id": 7
+    },
+    {
+      "image": "https://5.imimg.com/data5/UE/FU/MY-47419749/vst130di-power-triller-500x500.jpg",
+      "name": "Tiller",
+      "companyName": "TAFE",
+      "offer": false,
+      "price": "50000",
+      "regDate": "2020-08-10",
+      "category": "Machinery",
+      "stock": 17,
+      "rating": 0,
+      "description": "Used mainly in small level farm fields",
+      "id": 8
+    }
+  ],
+  "users": [
+    {
+      "firstname": "Admin",
+      "lastname": "M",
+      "email": "admin@gmail.com",
+      "password": "admin123",
+      "confirmpassword": "admin123",
+      "securityquestion": "who is your best friend?",
+      "answer": "admin",
+      "gender": "male",
+      "id": 1
+    },
+    {
+      "firstname": "Muthu",
+      "lastname": "kumar",
+      "email": "v.chanthanu@gmail.com",
+      "password": "qwe",
+      "confirmpassword": "qwe",
+      "sequrityquestion": "who is your best friend?",
+      "answer": "yes",
+      "gender": "male",
+      "id": 2
+    },
+    {
+      "firstname": "Muthu",
+      "lastname": "kumar",
+      "email": "v.chanthanu@gmail.com",
+      "password": "qw",
+      "confirmpassword": "qw",
+      "sequrityquestion": "what is your first school?",
+      "answer": "qw",
+      "gender": "male",
+      "id": 3
+    },
+    {
+      "firstname": "Muthu",
+      "lastname": "kumar",
+      "email": "v.chanthanu@gmail.com",
+      "password": "123",
+      "confirmpassword": "123",
+      "sequrityquestion": "who is your best friend?",
+      "answer": "muthu",
+      "gender": "male",
+      "id": 4
+    },
+    {
+      "firstname": "sandeep",
+      "lastname": "m",
+      "email": "sandeep@g.com",
+      "password": "123",
+      "confirmpassword": "123",
+      "securityquestion": "who is your best friend?",
+      "answer": "sandeep",
+      "gender": "male",
+      "id": 5
+    },
+    {
+      "firstname": "Muthu",
+      "lastname": "kumar",
+      "email": "v.chanthanu@gmail.com",
+      "password": "123",
+      "confirmpassword": "123",
+      "securityquestion": "what is your first school?",
+      "answer": "1",
+      "gender": "male",
+      "id": 6
+    },
+    {
+      "firstname": "a",
+      "lastname": "a",
+      "email": "q@c",
+      "password": "12",
+      "confirmpassword": "12",
+      "securityquestion": "who is your best friend?",
+      "answer": "a",
+      "gender": "male",
+      "id": 7
+    }
+  ],
+  "sales": [
+    {
+      "id": 1,
+      "name": "Mango Saplings",
+      "category": "Seed/sapling",
+      "monday": 2,
+      "tuesday": 6,
+      "wednesday": 7,
+      "thursday": 3,
+      "friday": 0
+    },
+    {
+      "id": 2,
+      "name": "Coconut Saplings",
+      "category": "Seed/sapling",
+      "monday": 8,
+      "tuesday": 10,
+      "wednesday": 6,
+      "thursday": 15,
+      "friday": 10
+    },
+    {
+      "id": 3,
+      "name": "Tractor 5400",
+      "category": "Machinery",
+      "monday": 20,
+      "tuesday": 12,
+      "wednesday": 24,
+      "thursday": 13,
+      "friday": 17
+    },
+    {
+      "id": 4,
+      "name": "Banana Plant",
+      "category": "Seed/sapling",
+      "monday": 5,
+      "tuesday": 7,
+      "wednesday": 6,
+      "thursday": 8,
+      "friday": 9
+    },
+    {
+      "id": 5,
+      "name": "Shovel",
+      "category": "Tools",
+      "monday": 8,
+      "tuesday": 10,
+      "wednesday": 6,
+      "thursday": 15,
+      "friday": 10
+    }
+  ]
+}
