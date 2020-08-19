@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Container, Row, Col, Card, Alert } from 'react-bootstrap';
 class AddEditProduct extends React.Component {
     constructor(props) {
         super(props)
@@ -145,57 +146,99 @@ class AddEditProduct extends React.Component {
     }
     render() {
         return (
-            <div className="section">
-                <div className="container">
-                    <span className="loginarea">
-                        <h1>Product Details</h1>
-                        {this.state.validation && <h3 className="error">All the below details are required </h3>}
-                        <form className="addpdtform" >
-                            <div className="formalign">
-                                <span className="left"><label htmlFor='name'>Name</label>
-                                    <input type="text" id='name' name="name" value={this.state.name} onChange={this.getName}></input></span>
-                                <span className="right"><label htmlFor='Manufacturename'>Company Name</label>
-                                    <input type="text" id='Manufacturename' name="Manufacturename" value={this.state.companyName} onChange={this.getCompanyName}></input></span>
-                            </div>
-                            <div className="formalign">
-                                <span className="left"><label htmlFor="price">Price</label>
-                                    <input type="number" id='price' value={this.state.price} onChange={this.getPrice}></input></span>
-                                <span className="right"><label htmlFor='stock'>Stock</label>
-                                    <input type="number" id="stock" value={this.state.stock} onChange={this.getStock}></input></span>
-                            </div>
-                            <div className="formalign">
-                                <span className="left"><label htmlFor="category">Category</label>
-                                    <select className="right" id="category" name="category" value={this.state.category} onChange={this.getCategory}>
-                                        <option value=""></option>
-                                        <option value="Machinery">Machinery</option>
-                                        <option value="Seed/sapling">Seed/Sapling</option>
-                                        <option value="Tools">Tools</option>
-                                    </select></span>
-                            </div>
-                            <div className="formalign">
-                                <span className="left"><label htmlFor="imageurl">Imageurl</label>
-                                    <input type='file' id='imageurl'   onChange={this.getImage}  accept='image/*'></input></span>
-                                    {/* <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></span> */}
-                                <span className="right"><label htmlFor="">Today's Offer</label>
-                                    <input type="radio" id="yes" name="Inoffer" onClick={this.getOfferYes} checked={this.state.offer === true} value='true'></input>
-                                    <label htmlFor="yes">Yes</label>
-                                    <input type="radio" id="no" name="Inoffer" onClick={this.getOfferNo} checked={this.state.offer === false} value='false'></input>
-                                    <label htmlFor="no">No</label></span>
-                            </div>
-                            <div className="formalign"><span className="left"><label htmlFor="description">Description</label>
-                                <input type="text" id="description" value={this.state.description} onChange={this.getDescription}></input></span>
-                                <span className="right">
-                                    <label htmlFor="dateofpdt">Date of Registration</label>
-                                    <input type="date" value={this.state.regDate} onChange={this.getDate}></input>
-                                </span>
-                            </div>
-                            <br></br><br></br>
-                            {this.props.location.state === undefined && <input type="button" value="AddProduct" disabled={this.state.validation} onClick={this.addproduct}></input>}
-                            {this.props.location.state !== undefined && <input type="button" value="SaveProduct" disabled={this.state.validation} onClick={this.editproduct}></input>}
-                        </form>
-                    </span>
-                </div>
-            </div>
+            <Container>
+                <Row >
+                    <Col  >
+                        <Card className='mx-auto'>
+                            <Row><Col><h2 className='text-center'>Product Details</h2></Col></Row>
+                            <Row><Col>{this.state.validation && <Alert variant='danger'><h6 className='text-center'>All the below details are required </h6></Alert>}</Col></Row>
+                            <form>
+                                <Row className='mx-auto'>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor='name'>Name</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="text" id='name' name="name" value={this.state.name} onChange={this.getName}></input></Col>
+                                        </Row>
+                                    </Col>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor='Manufacturename'>Company</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="text" id='Manufacturename' name="Manufacturename" value={this.state.companyName} onChange={this.getCompanyName}></input></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                                <Row className='mx-auto'>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="price">Price</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="number" id='price' value={this.state.price} onChange={this.getPrice}></input></Col>
+                                        </Row>
+                                    </Col>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor='stock'>Stock</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="number" id="stock" value={this.state.stock} onChange={this.getStock}></input></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                                <Row className='mx-auto'>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="category">Category</label></Col>
+                                            <Col xl={6} md={6} xs={12}><select className="right" id="category" name="category" value={this.state.category} onChange={this.getCategory}>
+                                                <option value=""> </option>
+                                                <option value="Machinery">Machinery</option>
+                                                <option value="Seed/sapling">Seed/Sapling</option>
+                                                <option value="Tools">Tools</option>
+                                            </select></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                                <Row className='mx-auto'>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="imageurl">Imageurl</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type='file' id='imageurl' onChange={this.getImage} accept='image/*'></input></Col>
+                                        </Row>
+                                    </Col>
+                                    {/* <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></Col> */}
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="">Today's Offer</label></Col>
+                                            <Col xl={3} md={3} xs={6}><input type="radio" id="yes" name="Inoffer" onClick={this.getOfferYes} checked={this.state.offer === true} value='true'></input>
+                                                <label htmlFor="yes">Yes</label></Col>
+                                            <Col xl={3} md={3} xs={6}><input type="radio" id="no" name="Inoffer" onClick={this.getOfferNo} checked={this.state.offer === false} value='false'></input>
+                                                <label htmlFor="no">No</label></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                                <Row className='mx-auto'>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="description">Description</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="text" id="description" value={this.state.description} onChange={this.getDescription}></input></Col>
+                                        </Row>
+                                    </Col>
+                                    <Col xl={6} md={6} xs={12}>
+                                        <Row>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="dateofpdt">Date of Registration</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type="date" value={this.state.regDate} onChange={this.getDate}></input></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                                <br></br>
+                                <Row className ='mx-auto'>
+                                    <Col xl={12} md={12} xs={12} className='text-center'>
+                                        {this.props.location.state === undefined && <input type="button" value="AddProduct" disabled={this.state.validation} onClick={this.addproduct}></input>}
+                                        {this.props.location.state !== undefined && <input type="button" value="SaveProduct" disabled={this.state.validation} onClick={this.editproduct}></input>}
+                                    </Col>
+                                </Row>
+                                <br></br>
+                            </form>
+                        </Card>
+                    </Col>
+                </Row >
+            </Container >
         );
     }
 }

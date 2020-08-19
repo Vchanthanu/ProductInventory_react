@@ -174,7 +174,7 @@ class SignUp extends React.Component {
                             </Row>
                             <Row className='mx-auto'><Col className="text-center ">{this.state.invalidconfirmpassword && this.state.onchangeconfirmpassword && <span className='error'>Confirm Password should match with Password</span>}</Col></Row>
                             <Row className='mx-auto'>
-                                <Col xl={5} md={5} xs={12}><label htmlFor="securityquestion">{this.state.invalidsecurityquestion && <span className='error'>*</span>}Security Question</label></Col>
+                                <Col xl={5} md={5} xs={12}><label htmlFor="securityquestion">{this.state.invalidsecurityquestion && <span className='error'>*</span>}Security Question ?</label></Col>
                                 <Col xl={7} md={7} xs={12}><select id="securityquestion" name="securityquestion" onChange={this.getSecurityQuestion}>
                                     <option value=''> </option>
                                     <option value='what is your first school?'>what is your first school?</option>
@@ -184,10 +184,10 @@ class SignUp extends React.Component {
                             </Row>
                             <Row className='mx-auto'><Col className="text-center ">{this.state.invalidsecurityquestion && this.state.onchangesequrity && <span className='error'>Select Security question</span>}</Col></Row>
                             <Row className='mx-auto'>
-                                <Col xl={6} md={6} xs={12}><label htmlFor="answer">{this.state.invalidanswer && <span className='error'>*</span>}Security Answer?</label></Col>
+                                <Col xl={6} md={6} xs={12}><label htmlFor="answer">{this.state.invalidanswer && <span className='error'>*</span>}Security Answer :</label></Col>
                                 <Col xl={6} md={6} xs={12}><input type="text" id="answer" name='answer' onChange={this.getAnswer}></input></Col>
                             </Row>
-                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidanswer && this.state.onchangeanswer && <span className='error'>Answer required</span>}</Col></Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidanswer && this.state.onchangeanswer && <span className='error'>Answer required </span>}</Col></Row>
                             <Row className='mx-auto'>
                                 <Col xl={6} md={6} xs={12}>{this.state.invalidgender && <span className='error'>*</span>}<label >Gender</label></Col>
                                 <Col xl={6} md={6} xs={12}><input type="radio" id="male" name="gender" value="male" onClick={this.getGender}></input>
