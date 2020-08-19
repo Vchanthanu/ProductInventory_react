@@ -76,15 +76,14 @@ class OverallSaleGraph extends React.Component {
                     }
                 })
             }
+            return null
         })
     }
     render() {
 
         return (
-            <Col  >
-                <Chart xs={12} md={6} lg={4}
-                    width='700px'
-                    height='270px'
+            <Col xs={12} md={6} lg={6} className='text-center'>
+                <Chart
                     chartType="Bar"
                     loader={<span>Loading Chart</span>}
                     data={[

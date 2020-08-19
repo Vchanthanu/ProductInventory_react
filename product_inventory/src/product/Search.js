@@ -12,7 +12,7 @@ class Search extends React.Component {
             <Row><Col xs={12} md={4} lg={3}>
                 <label htmlFor="category"><b>Category</b></label>&nbsp;&nbsp;
                 <select id="category" name="category" onChange={this.getCategory}>
-                    <option value="">Select Category</option>
+                    <option value="">All</option>
                     <option value="Machinery">Machinery</option>
                     <option value="Seed/sapling">Seed/Sapling</option>
                     <option value="Tools">Tools</option>

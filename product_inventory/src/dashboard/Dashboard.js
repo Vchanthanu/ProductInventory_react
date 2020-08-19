@@ -60,7 +60,7 @@ class DashBoard extends React.Component {
         } else {
             return this.state.productList.map(product => {
                 return (
-                    <span key={product.id}>
+                    <Row key={product.id}>
                         <ProductDisplay
                             id={product.id}
                             image={product.image}
@@ -73,9 +73,8 @@ class DashBoard extends React.Component {
                             editproduct={this.editproduct}
                             deleteproduct={this.deleteproduct}>
                         </ProductDisplay>
-                        <ProductSaleGraph
-                            id={product.id} />
-                    </span>
+                        <ProductSaleGraph id={product.id} />
+                    </Row>
                 )
             })
         }
@@ -101,12 +100,12 @@ class DashBoard extends React.Component {
             <Container fluid>
                 <Row><StockTable /></Row>
                 <hr></hr>
-                <Row><OverallSaleGraph /></Row>
+                <Row className='mx-auto'><OverallSaleGraph /></Row>
                 <br></br>&nbsp;
                 <Row><Col><Search search={this.search} categoryfilter={this.categoryfilter} /></Col></Row>
                 {this.state.deletestatus && <Alert variant='danger'><h3>Product Deleted Successfully !!!</h3></Alert>}
                 <br></br>
-                <CardDeck><Row>{this.productdisplay()}</Row></CardDeck>
+                <CardDeck><Row><Col xl={12} xs={12} md={12}>{this.productdisplay()}</Col></Row></CardDeck>
             </Container >
         );
     }

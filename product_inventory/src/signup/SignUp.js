@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { Container, Card, Row, Col, Button, Alert } from 'react-bootstrap'
+import { Container, Card, Row, Col, Button } from 'react-bootstrap'
 
 class SignUp extends React.Component {
     constructor(props) {

@@ -44,14 +44,13 @@ class StockGraph extends React.Component {
                     tool: parseInt(this.state.tool) + parseInt(product.stock)
                 })
             }
+            return null
         })
     }
     render() {
         return (
             <span className='chart'>
                 <Chart
-                    width='500px'
-                    height='270px'
                     chartType="Bar"
                     loader={<span>Loading Chart...</span>}
                     data={[

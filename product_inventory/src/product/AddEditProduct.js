@@ -48,7 +48,7 @@ class AddEditProduct extends React.Component {
     }
     validationfn = () => {
         setTimeout(() => {
-            if ((this.state.image === "") || (this.state.name === "") || this.state.companyName === "" || this.state.offer === undefined || this.state.price <= 0 || this.state.stock <= 0 || this.state.regDate === "" || this.state.description === "" || this.state.category === "") {
+            if ((this.state.image === "") || (this.state.name === "") || this.state.companyName === "" || this.state.offer === undefined || this.state.price <= 0 || this.state.stock < 0 || this.state.regDate === "" || this.state.description === "" || this.state.category === "") {
                 this.setState({ validation: true })
             } else {
                 this.setState({ validation: false })
@@ -110,7 +110,7 @@ class AddEditProduct extends React.Component {
 
     }
     getImage = (event) => {
-        console.log(event.target.value.substr(12))
+        // console.log(event.target.value)
         this.setState({ image: event.target.value.substr(12) })
         this.validationfn()
 
@@ -147,8 +147,8 @@ class AddEditProduct extends React.Component {
     render() {
         return (
             <Container>
-                <Row >
-                    <Col  >
+                <Row>
+                    <Col >
                         <Card className='mx-auto'>
                             <Row><Col><h2 className='text-center'>Product Details</h2></Col></Row>
                             <Row><Col>{this.state.validation && <Alert variant='danger'><h6 className='text-center'>All the below details are required </h6></Alert>}</Col></Row>
@@ -197,43 +197,44 @@ class AddEditProduct extends React.Component {
                                 <Row className='mx-auto'>
                                     <Col xl={6} md={6} xs={12}>
                                         <Row>
-                                            <Col xl={6} md={6} xs={12}><label htmlFor="imageurl">Imageurl</label></Col>
-                                            <Col xl={6} md={6} xs={12}><input type='file' id='imageurl' onChange={this.getImage} accept='image/*'></input></Col>
+                                            <Col xl={6} md={6} xs={12}><label htmlFor="imageurl">Image</label></Col>
+                                            <Col xl={6} md={6} xs={12}><input type='file' id='imageurl' onChange={this.getImage}  accept='image/*'></input></Col>
+                                            {/* {this.state.image &&<Col xl={6} md={6} xs={12}><input type='file' id='imageurl' onChange={this.getImage} value={"C:\\fakepath\\" +this.state.image} accept='image/*'></input></Col>} */}
                                         </Row>
                                     </Col>
-                                    {/* <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></Col> */}
-                                    <Col xl={6} md={6} xs={12}>
-                                        <Row>
-                                            <Col xl={6} md={6} xs={12}><label htmlFor="">Today's Offer</label></Col>
-                                            <Col xl={3} md={3} xs={6}><input type="radio" id="yes" name="Inoffer" onClick={this.getOfferYes} checked={this.state.offer === true} value='true'></input>
-                                                <label htmlFor="yes">Yes</label></Col>
-                                            <Col xl={3} md={3} xs={6}><input type="radio" id="no" name="Inoffer" onClick={this.getOfferNo} checked={this.state.offer === false} value='false'></input>
-                                                <label htmlFor="no">No</label></Col>
-                                        </Row>
-                                    </Col>
+                                {/* <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></Col> */}
+                                <Col xl={6} md={6} xs={12}>
+                                    <Row>
+                                        <Col xl={6} md={6} xs={12}><label htmlFor="">Today's Offer</label></Col>
+                                        <Col xl={3} md={3} xs={6}><input type="radio" id="yes" name="Inoffer" onClick={this.getOfferYes} checked={this.state.offer === true} value='true'></input>
+                                            <label htmlFor="yes">Yes</label></Col>
+                                        <Col xl={3} md={3} xs={6}><input type="radio" id="no" name="Inoffer" onClick={this.getOfferNo} checked={this.state.offer === false} value='false'></input>
+                                            <label htmlFor="no">No</label></Col>
+                                    </Row>
+                                </Col>
                                 </Row>
-                                <Row className='mx-auto'>
-                                    <Col xl={6} md={6} xs={12}>
-                                        <Row>
-                                            <Col xl={6} md={6} xs={12}><label htmlFor="description">Description</label></Col>
-                                            <Col xl={6} md={6} xs={12}><input type="text" id="description" value={this.state.description} onChange={this.getDescription}></input></Col>
-                                        </Row>
-                                    </Col>
-                                    <Col xl={6} md={6} xs={12}>
-                                        <Row>
-                                            <Col xl={6} md={6} xs={12}><label htmlFor="dateofpdt">Date of Registration</label></Col>
-                                            <Col xl={6} md={6} xs={12}><input type="date" value={this.state.regDate} onChange={this.getDate}></input></Col>
-                                        </Row>
-                                    </Col>
-                                </Row>
-                                <br></br>
-                                <Row className ='mx-auto'>
-                                    <Col xl={12} md={12} xs={12} className='text-center'>
-                                        {this.props.location.state === undefined && <input type="button" value="AddProduct" disabled={this.state.validation} onClick={this.addproduct}></input>}
-                                        {this.props.location.state !== undefined && <input type="button" value="SaveProduct" disabled={this.state.validation} onClick={this.editproduct}></input>}
-                                    </Col>
-                                </Row>
-                                <br></br>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}>
+                                    <Row>
+                                        <Col xl={6} md={6} xs={12}><label htmlFor="description">Description</label></Col>
+                                        <Col xl={6} md={6} xs={12}><input type="text" id="description" value={this.state.description} onChange={this.getDescription}></input></Col>
+                                    </Row>
+                                </Col>
+                                <Col xl={6} md={6} xs={12}>
+                                    <Row>
+                                        <Col xl={6} md={6} xs={12}><label htmlFor="dateofpdt">Date of Registration</label></Col>
+                                        <Col xl={6} md={6} xs={12}><input type="date" value={this.state.regDate} onChange={this.getDate}></input></Col>
+                                    </Row>
+                                </Col>
+                            </Row>
+                            <br></br>
+                            <Row className='mx-auto'>
+                                <Col xl={12} md={12} xs={12} className='text-center'>
+                                    {this.props.location.state === undefined && <input type="button" value="AddProduct" disabled={this.state.validation} onClick={this.addproduct}></input>}
+                                    {this.props.location.state !== undefined && <input type="button" value="SaveProduct" disabled={this.state.validation} onClick={this.editproduct}></input>}
+                                </Col>
+                            </Row>
+                            <br></br>
                             </form>
                         </Card>
                     </Col>

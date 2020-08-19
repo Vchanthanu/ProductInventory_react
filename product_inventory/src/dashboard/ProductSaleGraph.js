@@ -54,8 +54,6 @@ class ProductSaleGraph extends React.Component {
                 <Card className='mb-4 mr-2 ml-2' >
                     {this.state.norecord && <Alert variant='danger'><h3>No Record Found ...</h3></Alert>}
                     {(this.state.norecord === false) && <Chart
-                        width='500px'
-                        height='270px'
                         chartType="Bar"
                         loader={<span>Loading Chart...</span>}
                         data={[

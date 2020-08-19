@@ -1,16 +1,16 @@
 import React from 'react';
-import NewArrival from './NewArrival';
-import Offers from './Offers'
+// import NewArrival from './NewArrival';
+// import Offers from './Offers'
 import AllProduct from './AllProduct';
-import { Container, Col, Row } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 class Product extends React.Component {
     render() {
         return (
             <Container fluid>
-                <Row>
+                {/* <Row>
                     <Col xs={12} md={6} xl={6}><NewArrival /></Col>
                     <Col xs={12} md={6} xl={6}><Offers /></Col>
-                </Row>
+                </Row> */}
                 <AllProduct />
             </Container>
         );

@@ -3,7 +3,7 @@ import StockTableContent from './StockTableContent';
 import axios from 'axios'
 import { withRouter } from 'react-router-dom'
 import StockGraph from './StockGraph';
-import { Row, Container, Col, Table,Card } from 'react-bootstrap'
+import { Row, Container, Col, Table, Card } from 'react-bootstrap'
 class StockTable extends React.Component {
     constructor(props) {
         super(props)
@@ -78,9 +78,9 @@ class StockTable extends React.Component {
     }
     render() {
         return (<Container fluid>
-            <Row><Col xs={12} md={6} lg={6} >
+            <Row><Col xs={12} md={6} lg={6} className='justify-content-center'>
                 <Card className="table-wrapper-scroll-y my-custom-scrollbar">
-                    <Table responsive="xl" hover='true' bordered='true'>
+                    <Table  hover='true' bordered='true' >
                         <thead>
                             <tr>
                                 <th>Product Name</th>
@@ -94,9 +94,11 @@ class StockTable extends React.Component {
                             {this.stocktablecontent()}
                         </tbody>
                     </Table>
-                </Card></Col>
+                </Card>
+                &nbsp;</Col>
                 <Col xs={12} md={6} lg={6}>
-                    <StockGraph stockupdated={this.state.updatestock} /></Col>
+                    <StockGraph stockupdated={this.state.updatestock} />
+                </Col>
             </Row>
         </Container>);
     }
