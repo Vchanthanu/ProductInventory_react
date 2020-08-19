@@ -36,6 +36,8 @@ class AddEditProduct extends React.Component {
                         description: response.data.description
                     })
                     this.validationfn()
+                    console.log(this.state)
+                    console.log(this.state.image.substr(8))
                 }, error => {
                     console.error(error)
                 })
@@ -107,7 +109,8 @@ class AddEditProduct extends React.Component {
 
     }
     getImage = (event) => {
-        this.setState({ image: event.target.value })
+        console.log(event.target.value.substr(12))
+        this.setState({ image: event.target.value.substr(12) })
         this.validationfn()
 
     }
@@ -171,7 +174,8 @@ class AddEditProduct extends React.Component {
                             </div>
                             <div className="formalign">
                                 <span className="left"><label htmlFor="imageurl">Imageurl</label>
-                                    <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></span>
+                                    <input type='file' id='imageurl'   onChange={this.getImage}  accept='image/*'></input></span>
+                                    {/* <input type="text" id="imageurl" value={this.state.image} onChange={this.getImage}></input></span> */}
                                 <span className="right"><label htmlFor="">Today's Offer</label>
                                     <input type="radio" id="yes" name="Inoffer" onClick={this.getOfferYes} checked={this.state.offer === true} value='true'></input>
                                     <label htmlFor="yes">Yes</label>

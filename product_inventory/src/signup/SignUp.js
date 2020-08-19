@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import { Container, Card, Row, Col, Button, Alert } from 'react-bootstrap'
+
 class SignUp extends React.Component {
     constructor(props) {
         super(props)
@@ -13,16 +15,22 @@ class SignUp extends React.Component {
             securityquestion: ' ',
             answer: '',
             gender: '',
-            invalidfirstname: false,
-            invalidlastname: false,
+            invalidfirstname: true,
+            invalidlastname: true,
             invalidemail: true,
-            invalidpassword: false,
-            invalidconfirmpassword: false,
-            invalidsecurityquestion: false,
-            invalidanswer: false,
-            invalidgender: false,
+            invalidpassword: true,
+            invalidconfirmpassword: true,
+            invalidsecurityquestion: true,
+            invalidanswer: true,
+            invalidgender: true,
             invalidsubmit: true,
-            existuser: []
+            onchangefirstname:false,
+            onchangelastname:false,
+            onchangeemail:false,
+            onchangepassword:false,
+            onchangeconfirmpassword:false,
+            onchangesequrity:false,
+            onchangeanswer:false,
         }
     }
     signUp = (event) => {
@@ -34,31 +42,34 @@ class SignUp extends React.Component {
             "confirmpassword": this.state.confirmpassword,
             "securityquestion": this.state.securityquestion,
             "answer": this.state.answer,
-            "gender": this.state.gender,
+            "gender": this.state.gender
         }
-            axios.post('http://localhost:3000/users', signupRequestBody)
-                .then(response => {
-                    console.log('signUp done')
-                    this.props.history.push('/')
-                }, error => {
-                    console.error(error)
-                })
+        axios.post('http://localhost:3000/users', signupRequestBody)
+            .then(response => {
+                console.log('signUp done')
+                this.props.history.push('/')
+            }, error => {
+                console.error(error)
+            })
     }
     getFirstName = (event) => {
-        if (event.target.value === '' || event.target.value.includes('@')) {
+        this.setState({onchangefirstname:true})
+        if (event.target.value === '' || event.target.value.includes('@')||event.target.value.includes('#')||event.target.value.includes('$')||event.target.value.includes('%')||event.target.value.includes('*')) {
             this.setState({ invalidfirstname: true })
         } else {
             this.setState({ invalidfirstname: false, firstname: event.target.value })
         }
     }
     getLastName = (event) => {
-        if (event.target.value === ''|| event.target.value.includes('@')) {
+        this.setState({onchangelastname:true})
+        if (event.target.value === '' || event.target.value.includes('@')||event.target.value.includes('#')||event.target.value.includes('$')||event.target.value.includes('%')||event.target.value.includes('*')) {
             this.setState({ invalidlastname: true })
         } else {
             this.setState({ invalidlastname: false, lastname: event.target.value })
         }
     }
     getEmail = (event) => {
+        this.setState({onchangeemail:true})
         if (event.target.value.includes('@')) {
             this.setState({ invalidemail: false, email: event.target.value })
         } else {
@@ -66,6 +77,7 @@ class SignUp extends React.Component {
         }
     }
     getPassword = (event) => {
+        this.setState({onchangepassword:true})
         if (event.target.value === '') {
             this.setState({ invalidpassword: true })
         } else {
@@ -73,6 +85,7 @@ class SignUp extends React.Component {
         }
     }
     getConfirmPassword = (event) => {
+        this.setState({onchangeconfirmpassword:true})
         if (event.target.value !== this.state.password) {
             this.setState({ invalidconfirmpassword: true })
         } else {
@@ -80,6 +93,7 @@ class SignUp extends React.Component {
         }
     }
     getSecurityQuestion = (event) => {
+        this.setState({onchangesequrity:true})
         if (event.target.value.length === 0) {
             this.setState({ invalidsecurityquestion: true })
         } else {
@@ -87,6 +101,7 @@ class SignUp extends React.Component {
         }
     }
     getAnswer = (event) => {
+        this.setState({onchangeanswer:true})
         if (event.target.value === '') {
             this.setState({ invalidanswer: true })
         } else {
@@ -111,66 +126,84 @@ class SignUp extends React.Component {
     }
     render() {
         return (
-            <div className="section">
-                <div className="container">
-                    <span className="image">
-                        <h1 className="quote">Farming protects Future</h1>
-                        <h4 className="option"><Link to='/'><button className="login button" >
-                            <h3>LOGIN</h3>
-                        </button></Link>
-                        </h4>
-                        <h4 className="option"><Link to='/signup'><button className="signup button" >
-                            <h3>SIGNUP</h3>
-                        </button></Link>
-                        </h4>
-                    </span>
-                    <span className="loginarea">
-                        <h1>SignUp Here</h1>
-                        <form className="form" >
-                            <label htmlFor='firstname'>First Name</label>
-                            <input type="text" id='firstname' name="firstname" onChange={this.getFirstName}></input><br></br>
-                            {this.state.invalidfirstname && <span className='error'>FirstName is required</span>}
-                            <br></br><br></br>
-                            <label htmlFor='lastname'>Last Name</label>
-                            <input type="text" id='lastname' name="lastname" onChange={this.getLastName}></input><br></br>
-                            {this.state.invalidlastname && <span className='error'>LastName is required</span>}<br></br><br></br>
-                            <label htmlFor="email">E-mail:</label>
-                            <input type="email" id='email' onChange={this.getEmail}></input><br></br>
-                            {this.state.invalidemail && <span className='error'>Email Id, must contain '@'</span>}
-                            <br></br><br></br>
-                            <label htmlFor='password'>Password:</label>
-                            <input type="password" id="password" onChange={this.getPassword}></input><br></br>
-                            {this.state.invalidpassword && <span className='error'>Password is required</span>}
-                            <br></br><br></br>
-                            <label htmlFor="confirmpassword">Confirmpassword</label>
-                            <input type="password" id='confirmpassword' onChange={this.getConfirmPassword}></input><br></br>
-                            {this.state.invalidconfirmpassword && <span className='error'>Confirm Password should match with Password</span>}
-                            <br></br><br></br>
-                            <label htmlFor="securityquestion">Security Question</label>
-                            <select id="securityquestion" name="securityquestion" onChange={this.getSecurityQuestion}>
-                                <option value=''> </option>
-                                <option value='what is your first school?'>what is your first school?</option>
-                                <option value='who is your best friend?'>who is your best friend?</option>
-                                <option value='what is tour favourite color?'>what is tour favourite color?</option>
-                            </select><br></br>
-                            {this.state.invalidsecurityquestion && <span className='error'>required</span>}
-                            <br></br><br></br>
-                            <label htmlFor="answer">Security Answer?</label>
-                            <input type="text" id="answer" name='answer' onChange={this.getAnswer}></input><br></br>
-                            {this.state.invalidanswer && <span className='error'>required</span>}
+            <Container >
+                <Row>
+                    <Card className='mx-auto'>
+                        <h1>Farming protects Future</h1>
+                        <br></br>
+                        <Row className='mx-auto'>
+                            <Col xl={5} md={5} xs={12}>
+                                <Link to='/'><Button >
+                                    <h4>LOGIN</h4>
+                                </Button></Link>
+                            </Col>
+                            <Col xl={2} md={2} xs={12}>&nbsp;</Col>
+                            <Col xl={5} md={5} xs={12} >
+                                <Link to='/signup'><Button >
+                                    <h4>SIGNUP</h4>
+                                </Button></Link>
+                            </Col>
+                        </Row>
+                        <br></br>
+                        <Row className='mx-auto'><h2 >SignUp Here</h2></Row>
+                        <br></br>
+                        <form >
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor='firstname'>{this.state.invalidfirstname && <span className='error'>*</span>}First Name :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="text" id='firstname' name="firstname" onChange={this.getFirstName}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidfirstname && this.state.onchangefirstname && <span className='error'>Invalid firstName</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor='lastname'>{this.state.invalidlastname &&  <span className='error'>*</span>}Last Name :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="text" id='lastname' name="lastname" onChange={this.getLastName}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidlastname && this.state.onchangelastname && <span className='error'>Invalid LastName</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor="email">{this.state.invalidemail  && <span className='error'>*</span>}E-mail :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="email" id='email' onChange={this.getEmail}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidemail && this.state.onchangeemail && <span className='error'>Email Id, must contain '@'</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor='password'>{this.state.invalidpassword  && <span className='error'>*</span>}Password :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="password" id="password" onChange={this.getPassword}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidpassword && this.state.onchangepassword && <span className='error'>Password is required</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor="confirmpassword">{this.state.invalidconfirmpassword  && <span className='error'>*</span>}Confirmpassword :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="password" id='confirmpassword' onChange={this.getConfirmPassword}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidconfirmpassword && this.state.onchangeconfirmpassword && <span className='error'>Confirm Password should match with Password</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={5} md={5} xs={12}><label htmlFor="securityquestion">{this.state.invalidsecurityquestion && <span className='error'>*</span>}Security Question</label></Col>
+                                <Col xl={7} md={7} xs={12}><select id="securityquestion" name="securityquestion" onChange={this.getSecurityQuestion}>
+                                    <option value=''> </option>
+                                    <option value='what is your first school?'>what is your first school?</option>
+                                    <option value='who is your best friend?'>who is your best friend?</option>
+                                    <option value='what is tour favourite color?'>what is tour favourite color?</option>
+                                </select></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidsecurityquestion && this.state.onchangesequrity && <span className='error'>Select Security question</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor="answer">{this.state.invalidanswer && <span className='error'>*</span>}Security Answer?</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="text" id="answer" name='answer' onChange={this.getAnswer}></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidanswer && this.state.onchangeanswer && <span className='error'>Answer required</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}>{this.state.invalidgender && <span className='error'>*</span>}<label >Gender</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="radio" id="male" name="gender" value="male" onClick={this.getGender}></input>
+                                    <label htmlFor="male">Male</label>&nbsp;&nbsp;
+                                    <input type="radio" id="female" name="gender" value="female" onClick={this.getGender}></input>
+                                    <label htmlFor="female">Female</label></Col>
+                            </Row>
                             <br></br>
-                            <label >Gender</label>
-                            <input type="radio" id="male" name="gender" value="male" onClick={this.getGender}></input>
-                            <label htmlFor="male">Male</label>
-                            <input type="radio" id="female" name="gender" value="female" onClick={this.getGender}></input>
-                            <label htmlFor="female">Female</label><br></br>
-                            <br></br>
-                            <input type="button" onClick={this.signUp} disabled={this.state.invalidsubmit} value="SignUp"></input>
+                            <Row className='mx-auto'>
+                                <Col className="text-center"><input type="button" onClick={this.signUp} disabled={this.state.invalidsubmit} value="SignUp"></input></Col>
+                            </Row>
                             <br></br>&nbsp;<br></br>
                         </form>
-                    </span>
-                </div>
-            </div>
+                    </Card>
+                </Row>
+            </Container>
         )
     }
 }

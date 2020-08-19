@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import axios from 'axios'
-import { Container, Card, Row, Col,Button } from 'react-bootstrap'
+import { Container, Card, Row, Col, Button, Alert } from 'react-bootstrap'
 
 class Login extends React.Component {
     constructor(props) {
@@ -14,7 +14,9 @@ class Login extends React.Component {
             wrongPassword: false,
             wrongEmail: false,
             invalidEmail: true,
-            invalidPassword: true
+            invalidPassword: true,
+            emailOnChange: false,
+            passwordOnChange: false
         }
     }
     login = () => {
@@ -39,7 +41,7 @@ class Login extends React.Component {
 
     }
     getEmail = (event) => {
-        this.setState({ wrongEmail: false })
+        this.setState({ wrongEmail: false, emailOnChange: true })
         if (event.target.value.includes('@')) {
             this.setState({ invalidEmail: false })
             this.setState({ email: event.target.value })
@@ -48,7 +50,7 @@ class Login extends React.Component {
         }
     }
     getPassword = (event) => {
-        this.setState({ wrongPassword: false })
+        this.setState({ wrongPassword: false, passwordOnChange: true })
         if (event.target.value === '') {
             this.setState({ invalidPassword: true })
         } else {
@@ -58,33 +60,46 @@ class Login extends React.Component {
     }
     render() {
         return (
-            <Container>
-                <Card>
-                    <h1>Farming protects Future</h1>
-                    <Link to='/'><Button className="login button">
-                        <h3>LOGIN</h3>
-                    </Button></Link>
-                    <Link to='/signup'><Button >
-                        <h3>SIGNUP</h3>
-                    </Button></Link>
-                    <h1>Login Here</h1>
-                    {this.state.wrongEmail && <h3 className='error'>Invalid Email Id</h3>}
-                    {this.state.wrongPassword && <h3 className='error'>Invalid Password</h3>}
-                    <form className="form" >
-                        <label htmlFor='email'>E-mail:</label>
-                        <input type="email" id='email' onChange={this.getEmail} name='email'></input><br></br>
-                        {this.state.invalidEmail && <span className='error'>Email Id, must contain '@'</span>}
+            <Container >
+                <Row>
+                    <Card className='mx-auto'>
+                        <h1>Farming protects Future</h1>
                         <br></br>
+                        <Row className='mx-auto'>
+                            <Col xl={5} md={5} xs={12}>
+                                <Link to='/'><Button >
+                                    <h4>LOGIN</h4>
+                                </Button></Link>
+                            </Col>
+                            <Col xl={2} md={2} xs={12}>&nbsp;</Col>
+                            <Col xl={5} md={5} xs={12} >
+                                <Link to='/signup'><Button >
+                                    <h4>SIGNUP</h4>
+                                </Button></Link>
+                            </Col>
+                        </Row>
                         <br></br>
-                        <label htmlFor='password' >Password:</label>
-                        <input type="password" id='password' onChange={this.getPassword} name='password'></input><br></br>
-                        {this.state.invalidPassword && <span className='error'>Password is required</span>}
-                        <br></br><br></br>
-                        {/* <a href="/Forgot password">Forgot Password.?</a>&nbsp; */}
-                        <input type="button" onClick={this.login} disabled={this.state.invalidEmail || this.state.invalidPassword} value="Login"></input>
+                        <Row className='mx-auto'><h2 >Login Here</h2></Row>
                         <br></br>
-                    </form>
-                </Card>
+                        <Row > <Col xl={12} md={12} xs={12}>{this.state.wrongEmail && <Alert variant='danger'><h6 className="text-center">Invalid Email Id</h6></Alert>}
+                            {this.state.wrongPassword && <Alert variant='danger'><h6 className="text-center">Invalid Password</h6></Alert>}</Col></Row>
+                        <form>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor='email'>{this.state.invalidEmail && <span className='error'>*</span>}E-mail :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="email" id='email' onChange={this.getEmail} name='email'></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidEmail && this.state.emailOnChange && <span className='error'>Email Id, must contain '@'</span>}</Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={6} md={6} xs={12}><label htmlFor='password' >{this.state.invalidPassword && <span className='error'>*</span>}Password :</label></Col>
+                                <Col xl={6} md={6} xs={12}><input type="password" id='password' onChange={this.getPassword} name='password'></input></Col>
+                            </Row>
+                            <Row className='mx-auto'><Col className="text-center">{this.state.invalidPassword && this.state.passwordOnChange && <span className='error'>Password is required</span>}</Col></Row>
+                            <br></br>
+                            <Row className='mx-auto'><Col className="text-center"><input type="button" onClick={this.login} disabled={this.state.invalidEmail || this.state.invalidPassword} value="Login"></input></Col></Row>
+                            <br></br>
+                        </form>
+                    </Card>
+                </Row>
             </Container>
         )
     }

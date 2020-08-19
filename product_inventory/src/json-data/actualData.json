@@ -1,7 +1,7 @@
 {
   "products": [
     {
-      "image": "https://cdn.shopify.com/s/files/1/0014/1377/5433/products/Glenn_mango_7gal_540x.jpg",
+      "image": "mango.jpg",
       "name": "Mango Saplings",
       "companyName": "7Seed",
       "offer": false,
@@ -14,56 +14,69 @@
       "id": 1
     },
     {
-      "image": "https://3.imimg.com/data3/HY/QB/GLADMIN-122151/coconut-seedlings-500x500.jpg",
+      "image": "coconut.jpg",
       "name": "Coconut Saplings",
       "companyName": "7Seeds",
       "offer": "true",
       "price": 120,
       "regDate": "2020-08-04",
-      "category": "Seed/Sapling",
+      "category": "Seed/sapling",
       "stock": 250,
       "rating": "4.7",
       "description": "Plants We Supply Are Original Hybrid Varieties We Do In Our Own Garden.Plant Height 8 - 24 Inches",
       "id": 2
     },
     {
-      "id": 3,
-      "image": "https://www.tafe.com/tractors/imt/thumb/TAFE-IMT-tractor-565.2.png",
+      "image": "TAFE-Tractor.png",
       "name": "Tractor 5400",
-      "price": "74999.00",
       "companyName": "TAFE",
+      "offer": false,
+      "price": "74998",
+      "regDate": "2020-08-13",
       "category": "Machinery",
-      "regDate": "2020-08-04",
-      "stock": 10,
-      "offer": false,
+      "stock": 0,
       "rating": "4.9",
-      "description": "A tractor is an engineering vehicle for the purposes of hauling a trailer or machinery such as that used in agriculture or construction."
+      "description": "A tractor is an engineering vehicle for the purposes of hauling a trailer or machinery such as that used in agriculture or construction.",
+      "id": 3
     },
     {
-      "id": 4,
-      "image": "https://rukminim1.flixcart.com/image/416/416/jzlldow0/plant-sapling/w/j/g/banana-long-plant-1-modern-plant-original-imafjkzht86g9jj9.jpeg?q=70",
-      "name": "Banana Plant",
-      "companyName": "7Seeds",
+      "image": "PesticideSprayer.jpg",
+      "name": "Pesticide sprayer",
+      "companyName": "007Sprayer",
       "offer": false,
-      "price": "150",
+      "price": "1000",
       "regDate": "2020-08-05",
-      "category": "Seed/sapling",
-      "stock": "50",
+      "category": "Tools",
+      "stock": 37,
       "rating": 0,
-      "description": "Height: 150 mm.Life span of 10 months"
+      "description": "Model : Gold 16L 12V/12AH , Weight : 6 KG Capacity : 16 Liters",
+      "id": 6
     },
     {
-      "id": 5,
-      "image": "https://assets.leevalley.com/Size4/10101/CB215-mini-shovel-f-0009.jpg",
-      "name": "Shovel",
+      "image": "Jcb.jpg",
+      "name": "JCB",
       "companyName": "TAFE",
       "offer": false,
-      "price": "350",
-      "regDate": "2020-08-10",
-      "category": "Tools",
-      "stock": "50",
+      "price": "999999",
+      "regDate": "2020-08-04",
+      "category": "Machinery",
+      "stock": 17,
       "rating": 0,
-      "description": "Excellent & durable, with a smooth & comfortable handle made from Wood and a thick heavy duty polished head.Do not expose to water for more hours."
+      "description": "TorqueLock to reduce fuel consumption and increase top speeds.",
+      "id": 7
+    },
+    {
+      "image": "Powertriller.jpg",
+      "name": "Tiller",
+      "companyName": "TAFE",
+      "offer": false,
+      "price": "50000",
+      "regDate": "2020-08-10",
+      "category": "Machinery",
+      "stock": 17,
+      "rating": 0,
+      "description": "Used mainly in small level farm fields",
+      "id": 8
     }
   ],
   "users": [
