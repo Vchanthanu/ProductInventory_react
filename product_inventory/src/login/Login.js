@@ -61,44 +61,47 @@ class Login extends React.Component {
     render() {
         return (
             <Container >
-                <Row>
+                <Row className='mx-auto'>
                     <Card className='mx-auto'>
-                        <h1>Farming protects Future</h1>
-                        <br></br>
-                        <Row className='mx-auto'>
-                            <Col xl={5} md={5} xs={12}>
-                                <Link to='/'><Button >
-                                    <h4>LOGIN</h4>
-                                </Button></Link>
-                            </Col>
-                            <Col xl={2} md={2} xs={12}>&nbsp;</Col>
-                            <Col xl={5} md={5} xs={12} >
-                                <Link to='/signup'><Button >
-                                    <h4>SIGNUP</h4>
-                                </Button></Link>
-                            </Col>
-                        </Row>
-                        <br></br>
-                        <Row className='mx-auto'><h2 >Login Here</h2></Row>
-                        <br></br>
-                        <Row > <Col xl={12} md={12} xs={12}>{this.state.wrongEmail && <Alert variant='danger'><h6 className="text-center">Invalid Email Id</h6></Alert>}
-                            {this.state.wrongPassword && <Alert variant='danger'><h6 className="text-center">Invalid Password</h6></Alert>}</Col></Row>
-                        <form>
-                            <Row className='mx-auto'>
-                                <Col xl={6} md={6} xs={12}><label htmlFor='email'>{this.state.invalidEmail && <span className='error'>*</span>}E-mail :</label></Col>
-                                <Col xl={6} md={6} xs={12}><input type="email" id='email' onChange={this.getEmail} name='email'></input></Col>
-                            </Row>
-                            <Row className='mx-auto'><Col className="text-center ">{this.state.invalidEmail && this.state.emailOnChange && <span className='error'>Email Id, must contain '@'</span>}</Col></Row>
-                            <Row className='mx-auto'>
-                                <Col xl={6} md={6} xs={12}><label htmlFor='password' >{this.state.invalidPassword && <span className='error'>*</span>}Password :</label></Col>
-                                <Col xl={6} md={6} xs={12}><input type="password" id='password' onChange={this.getPassword} name='password'></input></Col>
-                            </Row>
-                            <Row className='mx-auto'><Col className="text-center">{this.state.invalidPassword && this.state.passwordOnChange && <span className='error'>Password is required</span>}</Col></Row>
+                        <Col xl={12} md={12} xs={12}>
+                            <h2 className='text-center'>Farming protects Future</h2>
                             <br></br>
-                            <Row className='mx-auto'><Col className="text-center"><input type="button" onClick={this.login} disabled={this.state.invalidEmail || this.state.invalidPassword} value="Login"></input></Col></Row>
+                            <Row className='mx-auto'>
+                                <Col xl={5} md={5} xs={12}>
+                                    <Link to='/'><Button >
+                                        <h4>LOGIN</h4>
+                                    </Button></Link>
+                                </Col>
+                                <Col xl={2} md={2} xs={12}>&nbsp;</Col>
+                                <Col xl={5} md={5} xs={12} >
+                                    <Link to='/signup'><Button >
+                                        <h4>SIGNUP</h4>
+                                    </Button></Link>
+                                </Col>
+                            </Row>
                             <br></br>
-                        </form>
+                            <Row className='mx-auto'><Col><h2 className='text-center'>Login Here</h2></Col></Row>
+                            <br></br>
+                            <Row > <Col xl={12} md={12} xs={12}>{this.state.wrongEmail && <Alert variant='danger'><h6 className="text-center">Invalid Email Id</h6></Alert>}
+                                {this.state.wrongPassword && <Alert variant='danger'><h6 className="text-center">Invalid Password</h6></Alert>}</Col></Row>
+                            <form className='m-3'>
+                                <Row className='mx-auto'>
+                                    <Col xl={5} md={5} xs={12} ><label htmlFor='email'>{this.state.invalidEmail && <span className='error'>*</span>}E-mail :</label></Col>
+                                    <Col xl={5} md={5} xs={12} ><input type="email" id='email' onChange={this.getEmail} name='email'></input></Col>
+                                </Row>
+                                <Row className='mx-auto'><Col className="text-center ">{this.state.invalidEmail && this.state.emailOnChange && <span className='error'>Email Id, must contain '@'</span>}</Col></Row>
+                                <Row className='mx-auto'>
+                                    <Col xl={5} md={5} xs={12} ><label htmlFor='password' >{this.state.invalidPassword && <span className='error'>*</span>}Password :</label></Col>
+                                    <Col xl={5} md={5} xs={12} ><input type="password" id='password' onChange={this.getPassword} name='password'></input></Col>
+                                </Row>
+                                <Row className='mx-auto'><Col className="text-center">{this.state.invalidPassword && this.state.passwordOnChange && <span className='error'>Password is required</span>}</Col></Row>
+                                <br></br>
+                                <Row className='mx-auto'><Col className="text-center"><input type="button" onClick={this.login} disabled={this.state.invalidEmail || this.state.invalidPassword} value="Login"></input></Col></Row>
+                                <br></br>
+                            </form>
+                        </Col>
                     </Card>
+
                 </Row>
             </Container>
         )

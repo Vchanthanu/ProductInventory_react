@@ -129,7 +129,7 @@ class SignUp extends React.Component {
             <Container >
                 <Row>
                     <Card className='mx-auto'>
-                        <h1>Farming protects Future</h1>
+                        <h2 className='text-center'>Farming protects Future</h2>
                         <br></br>
                         <Row className='mx-auto'>
                             <Col xl={5} md={5} xs={12}>

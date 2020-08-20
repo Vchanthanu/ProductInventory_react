@@ -229,8 +229,6 @@ class AllProduct extends React.Component {
                     <Link className="addproductbutton ml-auto " to='/addeditproduct'><Button variant='primary'>Add Product</Button></Link>
                 </Row>
                 <br></br>
-                <Row><Col><Search search={this.search} categoryfilter={this.categoryfilter} /></Col></Row>
-                <br></br>
                 <Row className='mx-auto'>
                     <Col xl={4} md={4} xs={12}><Row className='mx-auto'><Col><label htmlFor="sort"><b>Sort By :</b></label>&nbsp;&nbsp;
                         <select id="sort" name="sort" onChange={this.getSortby}>
@@ -254,6 +252,8 @@ class AllProduct extends React.Component {
                         <label htmlFor="table">Table</label>
                     </Col>
                 </Row>
+                <Row><Col><Search search={this.search} categoryfilter={this.categoryfilter} /></Col></Row>
+                <br></br>
                 <Row><Col>{this.state.deletestatus && <Alert variant='danger'><h3>Product Deleted Successfully !!!</h3></Alert>} </Col></Row>
                 <br></br>
                 {this.state.view === 'card' && <CardDeck><Row>{this.productdisplay()}</Row></CardDeck>}
